@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+<!-- <meta charset="ISO-8859-1"> -->
+<title>Insert title here</title>
+
+</head>
+<body>
+	<div  class="container my-2">
+	    
+		<h1>Job Details</h1>
+		<table border="1" class="table table-stried table responsive-md">
+			<thead>
+				<tr>
+					<th>Job Name</th>
+					<th>Prev Fire Time</th>
+					<th>Job Fire Time</th>
+					<th>Scheduler Fire Time</th>
+					<th>Next Fire Time</th>
+					<th>Job Run Time</th>
+					<th>Result</th>
+					<th>Execution Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="auditTable : ${job}">
+					<td th:text="${auditTable.jobName}"></td>
+					<td th:text="${auditTable.prevFireTime}"></td>
+					<td th:text="${auditTable.fireTime}"></td>
+					<td th:text="${auditTable.scheduledFireTime}"></td>
+					<td th:text="${auditTable.nextFireTime}"></td>
+					<td th:text="${auditTable.jobRunTime}"></td>
+					<td>successfull</td>
+					<td th:text="${auditTable.executionDate}"></td>
+					
+					 
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

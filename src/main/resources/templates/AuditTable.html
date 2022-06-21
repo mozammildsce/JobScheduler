@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+<!-- <meta charset="ISO-8859-1"> -->
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/js/index2.js"></script>
+</head>
+<body>
+	<div  class="container my-2">
+		<div class="container" id="formBox">
+			<form method="get">
+				<!-- <h1>Date picker</h1>
+				<p>From date:<input type="text" th:field="*{fromDate}"placeholder="fromDate" id="fromDate"></p>
+				<p> To date:<input type="text" th:field="*{toDate}"placeholder="toDate" id="toDate"></p>
+				<button type="submit" class="btn btn-primary filterButton">filter</button> -->
+			<input id="keyword" type="text" name="keyword">
+			<input id="fromDate" type="text" name="fromDate">
+			<input id="toDate" type="text" name="toDate">
+			
+			<button type="button" class="btn btn-primary filterButton">Filter</button>
+			</form>
+ 		</div>
+ 		<div class="hidden" id="auditTable">
+			<h1>Job Details</h1>
+			<table border="1" class="table table-stried table responsive-md">
+				<thead>
+					<tr>
+						<th>Job Name</th>
+						<th>Prev Fire Time</th>
+						<th>Job Fire Time</th>
+						<th>Scheduler Fire Time</th>
+						<th>Next Fire Time</th>
+						<th>Job Run Time(in ms)</th>
+						<th>Result</th>
+						<th>LocalDate</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="auditTable : ${AuditTable}">
+						<td th:text="${auditTable.jobName}"></td>
+						<td th:text="${auditTable.prevFireTime}"></td>
+						<td th:text="${auditTable.fireTime}"></td>
+						<td th:text="${auditTable.scheduledFireTime}"></td>
+						<td th:text="${auditTable.nextFireTime}"></td>
+						<td th:text="${auditTable.jobRunTime}"></td>
+						<td>successfull</td>
+						<td th:text="${auditTable.executionDate}"></td> 
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
